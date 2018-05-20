@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //Recycler view
         viewManager = LinearLayoutManager(this)
         activeGroupsArray = arrayListOf("Asqar balaa", "kokab talaa")
-        viewAdapter = MyAdapter(activeGroupsArray)
+        viewAdapter = GroupsRecyclerViewAdapter(activeGroupsArray)
         recyclerView = recycler_view.apply {
             setHasFixedSize(true)
             layoutManager = viewManager
