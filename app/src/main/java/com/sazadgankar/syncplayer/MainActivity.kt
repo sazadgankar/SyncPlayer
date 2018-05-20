@@ -1,8 +1,6 @@
 package com.sazadgankar.syncplayer
 
 import android.app.Activity
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
 import android.bluetooth.BluetoothAdapter
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -13,6 +11,8 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -25,13 +25,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private var bluetoothAdapter: BluetoothAdapter? = null
-    private var activeGroupsLiveData: LiveData<ArrayList<String>> = MutableLiveData<ArrayList<String>>()
+    private var activeGroupsArray: ArrayList<String> = ArrayList()
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        //Recycler view
+        viewManager = LinearLayoutManager(this)
+        activeGroupsArray = arrayListOf("Asqar balaa", "kokab talaa")
+        viewAdapter = MyAdapter(activeGroupsArray)
+        recyclerView = recycler_view.apply {
+            setHasFixedSize(true)
+            layoutManager = viewManager
+            adapter = viewAdapter
+        }
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -57,7 +70,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         bluetoothAdapter?.cancelDiscovery()
 
     }
-
 
     override fun onRequestPermissionsResult(requestCode: Int,
                                             permissions: Array<String>, grantResults: IntArray) {

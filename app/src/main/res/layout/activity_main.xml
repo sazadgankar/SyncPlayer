@@ -20,13 +20,15 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:titleTextColor="@color/textLight"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:theme="@style/AppTheme.MainMenu"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextColor="@color/textLight" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
