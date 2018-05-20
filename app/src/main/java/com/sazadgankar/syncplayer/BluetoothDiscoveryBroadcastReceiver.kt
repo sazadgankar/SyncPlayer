@@ -1,4 +1,12 @@
 package com.sazadgankar.syncplayer
 
-class BluetoothDiscoveryBroadcastReceiver {
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+
+class BluetoothDiscoveryBroadcastReceiver: BroadcastReceiver(){
+
+    override fun onReceive(context: Context?, intent: Intent?) {
+        
+    }
 }

@@ -40,11 +40,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                         android.Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
-                    arrayOf(android.Manifest.permission.READ_CONTACTS), REQUEST_LOCATION_CODE)
+                    arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION), REQUEST_LOCATION_CODE)
         } else {
             startDiscovery()
         }
     }
+
+
 
     override fun onRequestPermissionsResult(requestCode: Int,
                                             permissions: Array<String>, grantResults: IntArray) {
