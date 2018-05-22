@@ -6,4 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".ControllerActivityFragment">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/joined_devices_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/create_group_button">
+    </android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/create_group_button"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:background="@color/colorPrimaryLight"
+        android:text="@string/create_group_button"
+        android:textColor="@color/textLight"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 </android.support.constraint.ConstraintLayout>

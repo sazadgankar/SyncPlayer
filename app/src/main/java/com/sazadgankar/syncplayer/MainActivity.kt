@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         viewManager = LinearLayoutManager(this)
         activeGroupsArray = arrayListOf("Asqar balaa", "kokab talaa")
         viewAdapter = GroupsRecyclerViewAdapter(activeGroupsArray)
-        recyclerView = recycler_view.apply {
+        recyclerView = active_groups_recycler_view.apply {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = viewAdapter
@@ -158,15 +158,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.new_group -> {
                 val intent = Intent(this, ControllerActivity::class.java)
                 startActivity(intent)
-
-            }
-            R.id.nav_gallery -> {
-
-            }
-            R.id.nav_slideshow -> {
-
-            }
-            R.id.nav_manage -> {
 
             }
             R.id.nav_share -> {

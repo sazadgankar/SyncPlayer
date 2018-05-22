@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3fa9b5</color>
-    <color name="colorPrimaryLight">#ff6f00</color>
-    <color name="colorPrimaryDark">#30909f</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#4DB6AC</color>
+    <color name="colorPrimaryLight">#a6ff6f00</color>
+    <color name="colorPrimaryDark">#009688</color>
+    <color name="colorAccent">#4DB6AC</color>
     <color name="textLight">#FFFFFF</color>
     <color name="toolbarItems">#FFFFFF</color>
 

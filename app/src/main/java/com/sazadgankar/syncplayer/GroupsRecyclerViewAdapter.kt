@@ -1,20 +1,22 @@
 package com.sazadgankar.syncplayer
 
+import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.active_groups_row.view.*
 
 class GroupsRecyclerViewAdapter(private val dataset: ArrayList<String>) :
         RecyclerView.Adapter<GroupsRecyclerViewAdapter.ViewHolder>() {
-    class ViewHolder(val frameLayout: FrameLayout) : RecyclerView.ViewHolder(frameLayout)
+    class ViewHolder(val frameLayout: LinearLayout) : RecyclerView.ViewHolder(frameLayout)
 
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): GroupsRecyclerViewAdapter.ViewHolder {
 
         val textView = LayoutInflater.from(parent.context)
-                .inflate(R.layout.active_groups_row, parent, false) as FrameLayout
+                .inflate(R.layout.active_groups_row, parent, false) as LinearLayout
         return ViewHolder(textView)
     }
 

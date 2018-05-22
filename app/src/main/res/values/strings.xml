@@ -2,7 +2,7 @@
     <string name="app_name">SyncPlayer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_title">Sync Player</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
@@ -10,4 +10,10 @@
     <string name="title_activity_controller">ControllerActivity</string>
     <string name="need_location_permisssion">This app needs Location permission to use bluetooth!</string>
     <string name="need_bluetooth">This app needs bluetooth!</string>
+    <string name="create_group_button">Continue</string>
+    <string name="join_group_button">+ Join</string>
+    <string name="share">Share</string>
+    <string name="help">Help</string>
+    <string name="communicate">Communicate</string>
+    <string name="group_name_hint">Enter group name</string>
 </resources>
