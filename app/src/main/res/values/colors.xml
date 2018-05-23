@@ -6,5 +6,13 @@
     <color name="colorAccent">#4DB6AC</color>
     <color name="textLight">#FFFFFF</color>
     <color name="toolbarItems">#FFFFFF</color>
+    <color name="colorPrimaryAlpha">#714db6ac</color>
+    <color name="line">#71c1cecc</color>
+    <color name="line_background">#51e8efee</color>
+    <color name="textDark">#909696</color>
+
+
+
+
 
 </resources>

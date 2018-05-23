@@ -2,12 +2,13 @@
     <item>
         <shape>
             <size android:height="0dp"/>
+            <solid android:color="@color/line_background"/>
         </shape>
     </item>
-    <item android:top="69dp">
+    <item android:top="55dp">
         <shape>
             <size android:height="1dp"/>
-            <solid android:color="@color/colorPrimaryAlpha" />
+            <solid android:color="@color/line" />
         </shape>
     </item>
 </layer-list>

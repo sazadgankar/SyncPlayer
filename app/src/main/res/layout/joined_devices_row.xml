@@ -16,6 +16,7 @@
     tools:targetApi="lollipop">
 
     <CheckBox
+        android:id="@+id/joined_devices_check_box"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginEnd="20dp"

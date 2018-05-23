@@ -10,10 +10,16 @@
     <string name="title_activity_controller">ControllerActivity</string>
     <string name="need_location_permisssion">This app needs Location permission to use bluetooth!</string>
     <string name="need_bluetooth">This app needs bluetooth!</string>
-    <string name="create_group_button">Continue</string>
+    <string name="create_group_button">Create</string>
     <string name="join_group_button">+ Join</string>
+    <string name="add_member_button">+ Add</string>
+    <string name="add_music_button">Sync play</string>
     <string name="share">Share</string>
     <string name="help">Help</string>
     <string name="communicate">Communicate</string>
     <string name="group_name_hint">Enter group name</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="choose_members">Add members :</string>
+    <string name="choose_music">Select songs :</string>
 </resources>
