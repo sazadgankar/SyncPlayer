@@ -1,10 +1,12 @@
 package com.sazadgankar.syncplayer
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.bluetooth.BluetoothAdapter
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
@@ -13,10 +15,15 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.webkit.*
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import java.net.URI
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     companion object {
@@ -30,12 +37,44 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-
+    private lateinit var code: String
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        //Web View
+        web_view.visibility = View.GONE
+        if (!PreferenceManager.getDefaultSharedPreferences(applicationContext).contains("USER_CODE")) {
+            web_view.visibility = View.VISIBLE
+            main_activity_content.visibility = View.GONE
+            nav_view.visibility = View.GONE
+
+            val settings = web_view.settings
+            settings.javaScriptEnabled = true
+            settings.domStorageEnabled = true
+            web_view.webViewClient = object : WebViewClient() {
+                @Suppress("OverridingDeprecatedMember")
+                override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                    val uri = URI.create(url)
+                    if (uri.scheme == "syncplayer") {
+                        // get code
+                        code = uri.query.substring(5)
+                        PreferenceManager.getDefaultSharedPreferences(applicationContext).edit().
+                                putString("USER_CODE", code).apply()
+                        Log.i("URL", code)
+                        web_view.visibility = View.GONE
+                        main_activity_content.visibility = View.VISIBLE
+                        nav_view.visibility = View.VISIBLE
+                    }
+                    @Suppress("DEPRECATION")
+                    return super.shouldOverrideUrlLoading(view, url)
+                }
+            }
+            web_view.loadUrl("https://accounts.spotify.com/en/authorize?response_type=code&" +
+                    "client_id=05dfb34804c24f8d90b96d5818ff283e&redirect_uri=SyncPlayer:%2F%2Fcallback")
+        }
         //Recycler view
         viewManager = LinearLayoutManager(this)
         activeGroupsArray = arrayListOf("Asqar balaa", "kokab talaa")
@@ -145,9 +184,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
-        when (item.itemId) {
-            R.id.action_settings -> return true
-            else -> return super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.action_settings -> true
+            else -> super.onOptionsItemSelected(item)
         }
 
     }
